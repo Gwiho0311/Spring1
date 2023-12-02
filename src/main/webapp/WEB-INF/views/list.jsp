@@ -34,7 +34,7 @@
             <td>${u.regdate}</td>
 
             <td><a href="editform/${u.seq}">Edit</a></td>
-            <td><a href="javascript:deleteok('${u.seq}')">Delete</a></td>
+            <td><a href="deleteok/${u.seq}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

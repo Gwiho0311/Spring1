@@ -18,9 +18,10 @@
         <tr><td>Tag</td><td><input type="text" name="tag" /></td></tr>
         <tr><td>Writer</td><td><input type="text" name="writer" /></td></tr>
         <tr><td>Content</td><td><input type="text" name="content" /></td></tr>
-        <tr><td>Birthdate</td><td><input type="date" name="birthdate" /></td></tr>
+        <tr><td>Birthdate</td><td><input type="text" name="birthdate" /></td></tr>
         <tr><td>Country</td><td><input type="text" name="country" /></td></tr>
         <tr><td>Gender</td><td><input type="text" name="gender" /></td></tr>
+
     </table>
 
 
