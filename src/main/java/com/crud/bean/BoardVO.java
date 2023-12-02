@@ -37,6 +37,7 @@ public class BoardVO {
     }
     public String getBirthdate() { return birthdate;}
     public void setBirthdate(String birthdate) { this.birthdate = birthdate;}
+
     public String getCountry() { return country;}
     public void setCountry(String country) { this.country = country;}
     public String getGender() { return gender;}
