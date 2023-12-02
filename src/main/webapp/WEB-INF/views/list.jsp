@@ -1,7 +1,14 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<script>
+    function delete_ok(id) {
+        var a = confirm("정말로 삭제하겠습니까?");
+        if(a) location.href='deleteok/' + id;
+    }
+</script>
+
 <head>
     <title>Life Quotes</title>
 </head>
@@ -18,6 +25,7 @@
         <th>Gender</th>
         <th>Regdate</th>
         <th>Edit</th>
+        <th>View</th>
         <th>Delete</th>
 
 
@@ -34,7 +42,9 @@
             <td>${u.regdate}</td>
 
             <td><a href="editform/${u.seq}">Edit</a></td>
-            <td><a href="deleteok/${u.seq}">Delete</a></td>
+            <td><a href="viewform/${u.seq}">View</a></td>
+            <td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
+
         </tr>
     </c:forEach>
 </table>

@@ -31,7 +31,7 @@ public class BoardDAO {
             vo.setBirthdate(rs.getString("birthdate"));
             vo.setCountry(rs.getString("country"));
             vo.setGender(rs.getString("gender"));
-            vo.setRegdate(rs.getTimestamp("regdate")); // regdate 매핑 추가
+            vo.setRegdate(rs.getString("regdate")); // regdate 매핑 추가
             return vo;
         }
     }
@@ -40,18 +40,27 @@ public class BoardDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public int insertBoard(BoardVO vo){
-        String BOARD_INSERT = "insert into BOARD (tag, writer, content, birthdate, country, gender) values (?,?,?,?,?,?)";
-        return jdbcTemplate.update(BOARD_INSERT, new Object[]{vo.getTag(), vo.getWriter(), vo.getContent(), vo.getBirthdate(), vo.getCountry(), vo.getGender()});
+    public int insertBoard(BoardVO vo) {
+
+        String BOARD_INSERT = "insert into BOARD (tag, writer, content, birthdate, country, gender, regdate) values (?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(BOARD_INSERT, new Object[]{vo.getTag(), vo.getWriter(), vo.getContent(), vo.getBirthdate(), vo.getCountry(), vo.getGender(), vo.getRegdate()});
     }
+
     public int deleteBoard(int seq) {
         String BOARD_DELETE = "delete from BOARD  where seq=?";
         return jdbcTemplate.update(BOARD_DELETE, new Object[]{seq});
     }
     public int updateBoard(BoardVO vo){
-        String BOARD_UPDATE = "update BOARD set tag=?, writer=?, content=?, birthdate=?, country=?, gender=? where seq=?";
-        return jdbcTemplate.update(BOARD_UPDATE, new Object[]{vo.getTag(), vo.getWriter(), vo.getContent(), vo.getBirthdate(), vo.getCountry(), vo.getGender()});
+        String sql = "update BOARD set tag = '" + vo.getTag() + "',"
+                + " writer='" + vo.getWriter() + "',"
+                + " content='" + vo.getContent() + "',"
+                + " birthdate='" + vo.getBirthdate() + "',"
+                + " country='" + vo.getCountry() + "',"
+                + " gender='" + vo.getGender() + "',"
+                + " regdate='" + vo.getRegdate() + "' where seq=" + vo.getSeq();
+        return jdbcTemplate.update(sql);
     }
+
     public BoardVO getBoard(int seq){
         String BOARD_GET = "select * from BOARD  where seq=?";
         return jdbcTemplate.queryForObject(BOARD_GET, new Object[]{seq}, new BeanPropertyRowMapper<BoardVO>(BoardVO.class));
@@ -69,6 +78,7 @@ public class BoardDAO {
                 data.setBirthdate(rs.getString("birthdate"));
                 data.setCountry(rs.getString("country"));
                 data.setGender(rs.getString("gender"));
+                data.setRegdate(rs.getString("regdate"));
                 return data;
             }
         });

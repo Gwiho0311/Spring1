@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,7 @@
         <tr><td>Birthdate</td><td><input type="text" name="birthdate" /></td></tr>
         <tr><td>Country</td><td><input type="text" name="country" /></td></tr>
         <tr><td>Gender</td><td><input type="text" name="gender" /></td></tr>
+        <tr><td>Regdate:</td><td><input type="text" name="regdate" value="<%= new java.util.Date() %>" readonly /></td>
 
     </table>
 

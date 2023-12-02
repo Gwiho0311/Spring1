@@ -9,7 +9,7 @@ public class BoardVO {
     private String birthdate;
     private String country;
     private String gender;
-    private Date regdate;
+    private String regdate;
 
     public int getSeq() {
         return seq;
@@ -42,10 +42,10 @@ public class BoardVO {
     public void setCountry(String country) { this.country = country;}
     public String getGender() { return gender;}
     public void setGender(String gender) { this.gender = gender;}
-    public Date getRegdate() {
+    public String getRegdate() {
         return regdate;
     }
-    public void setRegdate(Date regdate) {
+    public void setRegdate(String regdate) {
         this.regdate = regdate;
     }
 }
